@@ -31,7 +31,7 @@ public class Turno {
         this.medico =(new MedicoService().findMedico(idMedico));
     }
 
-    public MedicoDTO getMedico(){
+    public MedicoDTO getMedico(){//evita recursión infinita turno -> medico -> turno -> ...
         if (medico == null) {
             return null;
         }
