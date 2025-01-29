@@ -1,9 +1,11 @@
 package hackacode.backend.model;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,12 +16,16 @@ import lombok.Setter;
  */
 @Entity
 @Getter @Setter @NoArgsConstructor
-public class Paciente extends Persona implements Serializable{
+public class Paciente extends Persona {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected long idPaciente;
     private boolean obraSocial;
 
-    public Paciente(long id, String nombre, String apellido, int dni, Date fechaNac, String email, String telefono,
+    public Paciente(long idPaciente, String nombre, String apellido, int dni, Date fechaNac, String email, String telefono,
             String direccion, boolean obraSocial) {
-        super(id, nombre, apellido, dni, fechaNac, email, telefono, direccion);
+        super(nombre, apellido, dni, fechaNac, email, telefono, direccion);
+        this.idPaciente = idPaciente;
         this.obraSocial = obraSocial;
     }
 }

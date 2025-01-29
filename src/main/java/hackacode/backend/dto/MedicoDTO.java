@@ -13,7 +13,7 @@ public class MedicoDTO {
     private String especialidad;
 
     public MedicoDTO(Medico medico){
-        idPersona = medico.getIdPersona();
+        idPersona = medico.getIdMedico();
         nombre = medico.getNombre();
         apellido = medico.getApellido();
         dni = medico.getDni();

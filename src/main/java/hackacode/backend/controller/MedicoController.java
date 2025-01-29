@@ -41,7 +41,7 @@ public class MedicoController {
     @PutMapping("medico/editar")
     public Medico editarMedico(@RequestBody Medico medico)
     {
-        Medico m = service.findMedico(medico.getIdPersona());
+        Medico m = service.findMedico(medico.getIdMedico());
         
         if (m != null) {
             service.saveMedico(medico);

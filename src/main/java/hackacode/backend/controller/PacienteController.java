@@ -42,7 +42,7 @@ public class PacienteController {
     @PutMapping("paciente/editar")
     public Paciente editarPaciente(@RequestBody Paciente paciente)
     {
-        Paciente p = service.findPaciente(paciente.getIdPersona());
+        Paciente p = service.findPaciente(paciente.getIdPaciente());
         
         if (p != null) {
             service.savePaciente(paciente);
