@@ -20,7 +20,6 @@ public class Consulta {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idConsulta;
     private Date fechaYHora;
-    private double montoTotal;
     private boolean pagado;
     private EstadoConsulta estado;
     @ManyToOne
@@ -29,5 +28,17 @@ public class Consulta {
     @ManyToOne
     @JoinColumn(name = "idPersona")
     private Medico medico;
+    @ManyToOne
+    @JoinColumn(name = "codServicio")
     private IServicio servicio;
+
+    public double getMontoTotal(){
+        if (servicio == null){
+            return 0;
+        }
+        if(paciente != null && paciente.isObraSocial()){
+            return servicio.getPrecio() * 0.8;
+        }
+        return servicio.getPrecio();
+    }
 }

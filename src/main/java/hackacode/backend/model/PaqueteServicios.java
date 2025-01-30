@@ -24,7 +24,7 @@ public class PaqueteServicios implements IServicio {
         for (ServicioMedico serv : listaServicios) {
             precio += serv.getPrecio();
         }
-        return precio;
+        return precio * 0.85;
     }
 
     public int getDuracionAprox(){
