@@ -1,11 +1,13 @@
 package hackacode.backend.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +19,8 @@ public class PaqueteServicios implements IServicio {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long codPaquete;
-    private ArrayList<ServicioMedico> listaServicios;
+    @ManyToMany
+    private List<ServicioMedico> listaServicios = new ArrayList<ServicioMedico>();
 
     public double getPrecio(){
         double precio = 0;
