@@ -72,7 +72,7 @@ public class Consulta {
         servicio = null;
     }
 
-    public IServicio getServicio(){ // no sé si este sirve de algo, capaz si saco el getPaquete()
+    public IServicio getServicio(){
         if(servicio != null){
             return servicio;
         }
